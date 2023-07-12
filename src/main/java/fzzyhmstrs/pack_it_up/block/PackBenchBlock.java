@@ -46,4 +46,17 @@ public class PackBenchBlock extends HorizontalFacingBlock {
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(FACING);
     }
+
+    @Override
+    public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext context) {
+        return VoxelShapes.union(
+            createCuboidShape(0, 0, 0, 2, 10, 2),
+            createCuboidShape(14, 0, 0, 2, 10, 2),
+            createCuboidShape(2, 0, 2, 12, 10, 12),
+            createCuboidShape(0, 10, 0, 16, 2, 14),
+            createCuboidShape(0, 0, 14, 16, 16, 2)
+            
+
+        );
+    }
 }
